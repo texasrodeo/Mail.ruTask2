@@ -5,8 +5,7 @@ import implementations.UniversalLogger;
 import interfaces.Logger;
 
 public class MyModule extends AbstractModule {
-
-    private String tag;
+    private final String tag;
 
     public MyModule(String tag){
         this.tag = tag;
@@ -14,8 +13,8 @@ public class MyModule extends AbstractModule {
 
     @Override
     protected void configure() {
-//        bind(Logger.class).toInstance(new ConsoleLogger(this.tag));
-        //bind(Logger.class).toInstance(new FileLogger(this.tag));
-        bind(Logger.class).toInstance(new UniversalLogger(this.tag));
+      //bind(Logger.class).toInstance(new ConsoleLogger(this.tag));
+        bind(Logger.class).toInstance(new FileLogger(this.tag));
+       // bind(Logger.class).toInstance(new UniversalLogger(this.tag));
     }
 }
